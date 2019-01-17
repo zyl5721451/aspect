@@ -1,6 +1,9 @@
 package com.hujiang.library.aspect;
 
+import com.hujiang.library.AspectListenerImpl;
+
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.DeclareMixin;
 
 /**
  * class description here
@@ -11,5 +14,11 @@ import org.aspectj.lang.annotation.Aspect;
  */
 @Aspect
 public class AbilityAspect {
+
+    @DeclareMixin("*.AOPActivity")
+    public AspectListener createDelegate() {
+        return new AspectListenerImpl();
+    }
+
 
 }
